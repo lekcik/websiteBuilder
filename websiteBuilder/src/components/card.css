@@ -1,0 +1,33 @@
+section.card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-index);
+
+    padding: var(--padding-index-medium);
+    box-shadow: 0.02rem 0.02rem 0.2rem rgba(1, 1, 1, 0.2);
+}
+
+section.card button {
+    background-color: transparent;
+    border: none;
+}
+
+section.card svg {
+    max-width: 2rem;
+    max-height: 2rem;
+}
+
+section.card p {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+section.card div:has(p + button) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-index);
+}
