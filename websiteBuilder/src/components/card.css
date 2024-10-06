@@ -1,22 +1,37 @@
 section.card {
+    position: relative;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--gap-index);
+    max-width: 13rem;
 
     padding: var(--padding-index-medium);
-    box-shadow: 0.02rem 0.02rem 0.2rem rgba(1, 1, 1, 0.2);
+    box-shadow: 0.02rem 0.02rem 0.2rem rgba(1, 1, 1, 0.5);
 }
 
-section.card button {
+section.card button:not(.openBtn) {
     background-color: transparent;
     border: none;
+    cursor: pointer;
+}
+
+section.card button:first-child:not(.openBtn) {
+    position: absolute;
+    top: 1%;
+    right: -20%;
 }
 
 section.card svg {
-    max-width: 2rem;
-    max-height: 2rem;
+    max-width: 1.9rem;
+    max-height: 1.9rem;
+    fill: var(--clr-text);
+    transition: all var(--transition-fast);
+}
+
+section.card button:hover svg {
+    fill: red;
 }
 
 section.card p {
@@ -26,8 +41,44 @@ section.card p {
 }
 
 section.card div:has(p + button) {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: var(--gap-index);
+}
+
+section.card iframe {
+    position: relative;
+    border: none;
+    box-shadow: 0rem 0rem 0.2rem rgba(1, 1, 1, 0.2);
+    height: 100%;
+    width: 100%;
+    transition: all var(--transition-medium);
+}
+
+section.card div:has(iframe) {
+    position: relative;
+    height: 15rem;
+    width: 95%;
+    cursor: pointer;
+}
+
+section.card div:has(iframe) button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: var(--padding-index-medium) var(--padding-index-big);
+    opacity: 0;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+}
+
+section.card div:has(iframe):hover iframe {
+    filter: blur(0.15rem);
+}
+
+section.card div:has(iframe):hover button {
+    opacity: 1;
 }
