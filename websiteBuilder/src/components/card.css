@@ -1,17 +1,26 @@
 section.card {
+    position: relative;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--gap-index);
+    max-width: 13rem;
 
     padding: var(--padding-index-medium);
-    box-shadow: 0.02rem 0.02rem 0.2rem rgba(1, 1, 1, 0.2);
+    box-shadow: 0.02rem 0.02rem 0.2rem rgba(1, 1, 1, 0.5);
 }
 
 section.card button {
     background-color: transparent;
     border: none;
+    cursor: pointer;
+}
+
+section.card button:first-child {
+    position: absolute;
+    top: 1%;
+    right: -20%;
 }
 
 section.card svg {
@@ -30,4 +39,11 @@ section.card div:has(p + button) {
     align-items: center;
     justify-content: space-between;
     gap: var(--gap-index);
+}
+
+section.card iframe {
+    border: none;
+    box-shadow: 0rem 0rem 0.2rem rgba(1, 1, 1, 0.2);
+    height: 15rem;
+    width: 95%;
 }

@@ -10,7 +10,7 @@ function Card(props) {
                 </svg>
             </button>
 
-            <iframe src={props.link} />
+            <iframe src={props.link} scrolling="no" />
             <div>
                 <p>{props.name}</p>
                 <button>
