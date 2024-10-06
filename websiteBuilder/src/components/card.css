@@ -23,11 +23,6 @@ section.card button:first-child:not(.openBtn) {
     right: -20%;
 }
 
-section.card div:has(button) > button:not(.openBtn) {
-    position: absolute;
-    right: -90%;
-}
-
 section.card svg {
     max-width: 1.9rem;
     max-height: 1.9rem;
