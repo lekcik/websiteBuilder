@@ -23,9 +23,14 @@ section.card button:first-child {
     right: -20%;
 }
 
+section.card div:has(button) > button {
+    position: absolute;
+    right: -90%;
+}
+
 section.card svg {
-    max-width: 2rem;
-    max-height: 2rem;
+    max-width: 1.9rem;
+    max-height: 1.9rem;
 }
 
 section.card p {
@@ -35,9 +40,10 @@ section.card p {
 }
 
 section.card div:has(p + button) {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: var(--gap-index);
 }
 
