@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
 import Home from "./pages/Home.jsx"
 import Error from "./pages/Error.jsx";
@@ -29,6 +29,10 @@ function App() {
         }
       ]
   });
+
+  useEffect(() => {
+    localStorage.setItem('pages', JSON.stringify(pages));
+  }, [pages]);
 
   return (
     <>
