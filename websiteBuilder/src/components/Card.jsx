@@ -10,7 +10,11 @@ function Card(props) {
                 </svg>
             </button>
 
-            <iframe src={props.link} scrolling="no" />
+            <div>
+                <iframe src={props.link} scrolling="no" />
+                <button className='openBtn'>Open</button>
+            </div>
+
             <div>
                 <p>{props.name}</p>
                 <button>

@@ -11,19 +11,19 @@ section.card {
     box-shadow: 0.02rem 0.02rem 0.2rem rgba(1, 1, 1, 0.5);
 }
 
-section.card button {
+section.card button:not(.openBtn) {
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-section.card button:first-child {
+section.card button:first-child:not(.openBtn) {
     position: absolute;
     top: 1%;
     right: -20%;
 }
 
-section.card div:has(button) > button {
+section.card div:has(button) > button:not(.openBtn) {
     position: absolute;
     right: -90%;
 }
@@ -31,6 +31,11 @@ section.card div:has(button) > button {
 section.card svg {
     max-width: 1.9rem;
     max-height: 1.9rem;
+    transition: all var(--transition-fast);
+}
+
+section.card button:hover svg {
+    fill: red;
 }
 
 section.card p {
@@ -48,8 +53,34 @@ section.card div:has(p + button) {
 }
 
 section.card iframe {
+    position: relative;
     border: none;
     box-shadow: 0rem 0rem 0.2rem rgba(1, 1, 1, 0.2);
+    height: 100%;
+    width: 100%;
+    transition: all var(--transition-medium);
+}
+
+section.card div:has(iframe) {
+    position: relative;
     height: 15rem;
     width: 95%;
+    cursor: pointer;
+}
+
+section.card div:has(iframe) button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+}
+
+section.card div:has(iframe) button:hover {
+    
+}
+
+section.card div:has(iframe):hover iframe {
+    filter: blur(0.1rem);
 }
