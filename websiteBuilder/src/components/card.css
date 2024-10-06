@@ -31,6 +31,7 @@ section.card div:has(button) > button:not(.openBtn) {
 section.card svg {
     max-width: 1.9rem;
     max-height: 1.9rem;
+    fill: var(--clr-text);
     transition: all var(--transition-fast);
 }
 
@@ -73,14 +74,16 @@ section.card div:has(iframe) button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: var(--padding-index-medium) var(--padding-index-big);
+    opacity: 0;
     cursor: pointer;
     transition: all var(--transition-medium);
 }
 
-section.card div:has(iframe) button:hover {
-    
+section.card div:has(iframe):hover iframe {
+    filter: blur(0.15rem);
 }
 
-section.card div:has(iframe):hover iframe {
-    filter: blur(0.1rem);
+section.card div:has(iframe):hover button {
+    opacity: 1;
 }

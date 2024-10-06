@@ -1,7 +1,11 @@
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 import './card.css';
 
 function Card(props) {
+    function btnHandler() {
+        window.location.href = props.link;
+    }
+
     return(
         <section className="card">
             <button>
@@ -12,7 +16,7 @@ function Card(props) {
 
             <div>
                 <iframe src={props.link} scrolling="no" />
-                <button className='openBtn'>Open</button>
+                <button onClick={btnHandler} className='openBtn'>Open</button>
             </div>
 
             <div>
