@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
 import Home from "./pages/Home.jsx"
 import Error from "./pages/Error.jsx";
+import PagesParser from "./funcs/PagesParser.jsx";
 import './root.css';
 import './app.css';
 
@@ -33,6 +34,9 @@ function App() {
   useEffect(() => {
     localStorage.setItem('pages', JSON.stringify(pages));
   }, [pages]);
+
+  let array = PagesParser(pages);
+  console.log(array);
 
   return (
     <>
