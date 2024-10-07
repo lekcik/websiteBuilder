@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { createContext, useContext, useEffect } from "react";
-import { useState } from "react";
+import { createContext, useEffect } from "react";
+import { useState, useRef } from "react";
 import Home from "./pages/Home.jsx"
 import Error from "./pages/Error.jsx";
 import PagesParser from "./funcs/PagesParser.jsx";
@@ -31,12 +31,12 @@ function App() {
       ]
   });
 
-  useEffect(() => {
-    localStorage.setItem('pages', JSON.stringify(pages));
-  }, [pages]);
+  // let array = useRef([]);
 
-  let array = PagesParser(pages);
-  console.log(array);
+  // useEffect(() => {
+  //   localStorage.setItem('pages', JSON.stringify(pages));
+  //   array.current = PagesParser(pages);
+  // }, [pages]);
 
   return (
     <>

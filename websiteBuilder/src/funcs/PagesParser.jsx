@@ -1,16 +1,16 @@
-import { useState } from "react";
+import React from 'react';
 
 function PagesParser(pages) {
-    const [pagesArray, setPagesArray] = useState([]);
+  const pagesArray = pages.map((page, _) => (
+    <div key={page.name}>
+      {page.elements.map((element, idx) => {
+        const Tag = element.type;
+        return <Tag key={idx} dangerouslySetInnerHTML={{ __html: element.innerHTML }} />;
+      })}
+    </div>
+  ));
 
-    const pageJsx = {
-        <h1>Halo</h1>
-        <p>It's your page</p>
-    }
-
-    setPagesArray((pA) => (...pA, pageJsx));
-
-    return(pagesArray);
+  return pagesArray;
 }
 
 export default PagesParser;
