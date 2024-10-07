@@ -3,6 +3,7 @@ import { createContext, useEffect } from "react";
 import { useState, useRef } from "react";
 import Home from "./pages/Home.jsx"
 import Error from "./pages/Error.jsx";
+import Builder from "./pages/Builder.jsx";
 import PagesParser from "./funcs/PagesParser.jsx";
 import './root.css';
 import './app.css';
@@ -45,6 +46,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
+            <Route path="builder" element={<Builder />} /> 
             <Route path="*" element={<Error />} />
           </Routes>
         </BrowserRouter>
