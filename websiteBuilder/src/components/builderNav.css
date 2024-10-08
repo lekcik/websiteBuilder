@@ -1,0 +1,8 @@
+nav.builder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: var(--padding-index-big);
+    padding-right: var(--padding-index-big);
+    border-bottom: 0.1rem solid black;
+}

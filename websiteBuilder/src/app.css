@@ -3,3 +3,7 @@ html {
     background-color: var(--clr-primary);
     color: var(--clr-text);
 }
+
+body {
+    margin: 0;
+}

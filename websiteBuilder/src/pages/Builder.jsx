@@ -1,33 +1,14 @@
 import { useState } from "react";
+import BuilderNav from "../components/BuilderNav.jsx";
+import AddElem from "../components/AddElem.jsx";
 
 function Builder() {
-    const [elements, setElements] = useState([]);
-    const [input, setInput] = useState('');
-
-    function inpHandler(e) {
-        setInput(e.target.value);
-    }
-
-    function btnHandler() {
-        setElements((e) => [...e, input]);
-
-        setInput('');
-    }
+    const [showAddElement, setAddElement] = useState(false);
 
     return(
         <>
-            <section className="builder">
-                <input value={input} onChange={inpHandler} type="text" />
-                <button onClick={btnHandler}>Add paragraph</button>
-            </section>
-        
-            <section className="prev">
-                {
-                    elements.map((data, index) => (
-                        <p key={index}>{data}</p>
-                    ))
-                }
-            </section>
+            <BuilderNav setAddElement={setAddElement} />
+            <AddElem />
         </>
     );
 }
