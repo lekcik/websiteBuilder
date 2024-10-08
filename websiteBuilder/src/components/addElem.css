@@ -1,4 +1,6 @@
 section.addElement {
+    grid-area: addElement;
+
     position: fixed;
     top: 0;
     left: 0;
