@@ -8,7 +8,7 @@ function Builder() {
     return(
         <>
             <BuilderNav setAddElement={setAddElement} />
-            <AddElem />
+            <AddElem showAddElement={showAddElement} setAddElement={setAddElement} />
         </>
     );
 }

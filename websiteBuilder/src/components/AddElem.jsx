@@ -1,8 +1,15 @@
 import './addElem.css';
 
-function AddElem() {
+function AddElem({showAddElement, setAddElement}) {
+    const shouldShow = showAddElement ? 'show' : '';
+
+    function closeBtnHandler() {
+        setAddElement(false);
+    }
+
     return(
-        <section className="addElement">
+        <section className={`addElement ${shouldShow}`}>
+            <button onClick={closeBtnHandler} className='closeBtn'>X</button>
             <h2>Categories</h2>
             <details className="textElements">
                 <summary>Text</summary>

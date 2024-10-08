@@ -8,5 +8,22 @@ section.addElement {
 
     padding: var(--padding-index-big);
 
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0.5;
+
+    transition: all var(--transition-medium);
+
     z-index: 200;
+}
+
+section.addElement.show {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+section.addElement button.closeBtn {
+    position: absolute;
+    right: -25%;
+    top: var(--padding-index-big);
 }

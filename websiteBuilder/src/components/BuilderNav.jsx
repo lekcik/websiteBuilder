@@ -3,7 +3,7 @@ import './builderNav.css';
 function BuilderNav({setAddElement}) {
     
     function addElemBtnHandler() {
-        setAddElement((prev) => (!prev));
+        setAddElement(true);
     }
 
     return(
