@@ -7,7 +7,7 @@ function BuilderNav({setAddElement}) {
     }
 
     return(
-        <nav className="builder">
+        <nav className="builderNav">
             <button onClick={addElemBtnHandler} className='addElementBtn'>+</button>
             <h1>Name</h1>
             <a href="home">
