@@ -1,13 +1,13 @@
+import './addElem.css';
 
 function AddElem() {
     return(
         <section className="addElement">
-            <section className="textElements">
+            <h2>Categories</h2>
+            <details className="textElements">
                 <summary>Text</summary>
-                <details>
-                    Halo
-                </details>
-            </section>
+                <p>Halo</p>
+            </details>
         </section>
     );
 }

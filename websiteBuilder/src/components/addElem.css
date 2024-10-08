@@ -1,0 +1,12 @@
+section.addElement {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: grey;
+    border-right: 0.1rem solid black;
+
+    padding: var(--padding-index-big);
+
+    z-index: 200;
+}
