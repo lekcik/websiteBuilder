@@ -1,10 +1,6 @@
 section.addElement {
     grid-area: addElement;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
     background-color: grey;
     border-right: 0.1rem solid black;
 
@@ -15,8 +11,6 @@ section.addElement {
     opacity: 0.5;
 
     transition: all var(--transition-medium);
-
-    z-index: 200;
 }
 
 section.addElement.show {
@@ -25,7 +19,7 @@ section.addElement.show {
 }
 
 section.addElement button.closeBtn {
-    position: absolute;
-    right: -25%;
+    /* position: absolute;
+    right: -25%; */
     top: var(--padding-index-big);
 }

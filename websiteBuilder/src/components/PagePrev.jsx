@@ -3,7 +3,32 @@ import './pagePrev.css';
 function PagePrev() {
     return(
         <section className="pagePrev">
-            <p>Halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
+                <p>halo</p>
         </section>
     );
 }
