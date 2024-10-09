@@ -6,21 +6,20 @@ section.addElement {
 
     padding: var(--padding-index-big);
 
-    transform: scaleX(0);
-    transform-origin: left;
-    opacity: 0.5;
-
-    transition: all var(--transition-medium);
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden; 
+    
+    transition: width var(--transition-medium), opacity var(--transition-medium), visibility linear var(--transition-medium);
 }
 
 section.addElement.show {
-    transform: scaleX(1);
+    width: 12.5%; 
     opacity: 1;
+    visibility: visible; 
 }
 
 section.addElement button.closeBtn {
-    position: absolute;
-    right: 0%;
-    margin-right: var(--padding-index-big);
-    top: var(--padding-index-big);
+
 }
