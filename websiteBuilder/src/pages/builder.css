@@ -4,6 +4,6 @@ section.builder {
     grid-template-rows: auto 1fr 1fr; 
     grid-template-areas: 
         'builderNav builderNav builderNav'
-        'addElement pagePrev pagePrev'
-        'addElement pagePrev pagePrev';
+        'pagePrev pagePrev pagePrev'
+        'pagePrev pagePrev pagePrev';
 }

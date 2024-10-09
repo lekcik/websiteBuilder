@@ -19,7 +19,8 @@ section.addElement.show {
 }
 
 section.addElement button.closeBtn {
-    /* position: absolute;
-    right: -25%; */
+    position: absolute;
+    right: 0%;
+    margin-right: var(--padding-index-big);
     top: var(--padding-index-big);
 }
