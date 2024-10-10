@@ -11,3 +11,7 @@ section.pagePrev section.elementContainer {
     justify-content: left;
     gap: var(--gap-index);
 }
+
+section.pagePrev section.elementContainer.editing-true {
+    border: 0.1rem solid black;
+}
