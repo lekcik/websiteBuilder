@@ -1,6 +1,6 @@
 
 function PParser({ text, index }) {
-    return <p className="element" key={index}>{text}</p>;
+    return <p className={`element`} key={index}>{text}</p>;
 }
 
 function PagesParser({ data, index }) {
