@@ -2,6 +2,7 @@ import './pagePrev.css';
 import AddElem from './AddElem.jsx';
 import { useState } from 'react';
 import AddElemHandler from '../Functionality/AddElemHandler.jsx';
+import PagesParser from '../Functionality/PagesParser.jsx';
 
 function PagePrev({ showAddElement, setAddElement }) {
     const [pageElements, setPageElements] = useState([
@@ -29,7 +30,7 @@ function PagePrev({ showAddElement, setAddElement }) {
             <section className='pageElements'>
                 {
                     pageElements.map((data, index) => (
-                        <p key={index}>{data.text}</p>
+                        PagesParser(data, index)
                     ))
                 }
             </section>
