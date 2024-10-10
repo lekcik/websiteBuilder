@@ -4,3 +4,10 @@ section.pagePrev {
     display: flex;
     min-height: 100vh;
 }
+
+section.pagePrev section.elementContainer {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: var(--gap-index);
+}
