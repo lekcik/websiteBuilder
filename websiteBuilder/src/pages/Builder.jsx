@@ -1,6 +1,6 @@
 import { useState } from "react";
-import BuilderNav from "../components/BuilderNav.jsx";
-import PagePrev from "../components/PagePrev.jsx";
+import BuilderNav from "../components/UI/BuilderNav.jsx";
+import PagePrev from "../components/UI/PagePrev.jsx";
 import './builder.css';
 
 function Builder() {

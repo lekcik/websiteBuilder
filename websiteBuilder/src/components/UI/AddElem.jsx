@@ -13,7 +13,7 @@ function AddElem({showAddElement, setAddElement}) {
             <h2>Categories</h2>
             <details className="textElements">
                 <summary>Text</summary>
-                <p>Halo</p>
+                <button>Add paragraph</button>
             </details>
         </section>
     );

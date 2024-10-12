@@ -1,0 +1,25 @@
+section.addElement {
+    grid-area: addElement;
+
+    background-color: grey;
+    border-right: 0.1rem solid black;
+
+    padding: var(--padding-index-big);
+
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden; 
+    
+    transition: width var(--transition-medium), opacity var(--transition-medium), visibility linear var(--transition-medium);
+}
+
+section.addElement.show {
+    width: 12.5%; 
+    opacity: 1;
+    visibility: visible; 
+}
+
+section.addElement button.closeBtn {
+
+}
