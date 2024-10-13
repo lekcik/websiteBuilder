@@ -1,6 +1,6 @@
 import './pagePrev.css';
 import AddElem from './AddElem.jsx';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import PagesParser from '../Functionality/PagesParser.jsx';
 
 function PagePrev({ showAddElement, setAddElement }) {
@@ -10,6 +10,8 @@ function PagePrev({ showAddElement, setAddElement }) {
         { type: 'p', text: 'Halo 3', editing: false  },
         { type: 'p', text: 'Halo 4', editing: false  }
     ]);
+
+    const editMode = useRef(false);
 
     function removeElement(index) {
         const filteredArray = pageElements.filter((_, i) => i !== index);
@@ -25,10 +27,12 @@ function PagePrev({ showAddElement, setAddElement }) {
         });
 
         setPageElements(updatedArray);
+        editMode.current = true;
     }
 
     return (
         <section className='pagePrev'>
+            {editMode.current ? <button>Test</button> : null}
             <AddElem showAddElement={showAddElement} setAddElement={setAddElement} pageElements={pageElements} setPageElements={setPageElements} />
             <section className='pageElements'>
                 {pageElements.map((data, index) => (
