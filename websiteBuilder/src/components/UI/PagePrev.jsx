@@ -20,10 +20,10 @@ function StaticElem({data, index, editElement, removeElement}) {
     );
 }
 
-function EditedElem() {
+function EditedElem({data, index}) {
     return(
         <>
-
+            <EditingParser data={data} index={index} />
         </>
     );
 }
@@ -62,7 +62,11 @@ function PagePrev({ showAddElement, setAddElement }) {
             <section className='pageElements'>
                 {pageElements.map((data, index) => (
                     <section className={`elementContainer editing-${data.editing}`} key={index}>
-                        <StaticElem data={data} index={index} editElement={editElement} removeElement={removeElement} />
+                        {
+                            data.editing 
+                            ? <EditedElem data={data} index={index} />
+                            : <StaticElem data={data} index={index} editElement={editElement} removeElement={removeElement} />
+                        }
                     </section>
                 ))}
             </section>
