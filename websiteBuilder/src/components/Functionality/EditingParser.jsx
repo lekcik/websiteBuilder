@@ -1,6 +1,14 @@
+import { useState } from "react";
+
 function PParser({text, index}) {
+    const [pText, setPText] = useState(text);
+
+    function textChangeHandler(e) {
+        setPText(e.target.value);
+    }
+
     return(
-        <p className={`element`} key={index}>{text}</p>
+        <input type="text" value={pText} onChange={(e) => {textChangeHandler(e)}} key={index} />
     );
 }
  
