@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 function PParser({text, index, setTempData}) {
     const [pText, setPText] = useState(text);
 
-    useEffect(() => (
-        setTempData((prev) => ({...prev, }))
-    ), [pText])
+    useEffect(() => {
+        setTempData((prev) => ({...prev, text: pText}));
+    }, [pText]);
 
     function textChangeHandler(e) {
         setPText(e.target.value);

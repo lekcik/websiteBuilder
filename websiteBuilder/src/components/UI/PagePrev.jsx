@@ -26,8 +26,8 @@ function EditedElem({data, index, cancelEditElement, confirmEditElement}) {
     return(
         <>
             <EditingParser data={tempData} index={index} setTempData={setTempData} />
-            <button>Confirm</button>
-            <button onClick={() => {cancelEditElement(index)}}>Cancel</button>
+            <button onClick={() => confirmEditElement(index, tempData)}>Confirm</button>
+            <button onClick={cancelEditElement}>Cancel</button>
         </>
     );
 }
@@ -59,7 +59,7 @@ function PagePrev({ showAddElement, setAddElement }) {
         editMode.current = true;
     }
 
-    function cancelEditElement(index) {
+    function cancelEditElement() {
         const updatedArray = pageElements.map((element, i) => {
             return { ... element, editing: false };
         });
@@ -71,7 +71,7 @@ function PagePrev({ showAddElement, setAddElement }) {
     function confirmEditElement(index, element) {
         const updatedArray = pageElements.map((prevElement, i) => {
             if (i === index) {
-                return element;
+                return {...element, editing: false};
             }
             return prevElement;
         })
