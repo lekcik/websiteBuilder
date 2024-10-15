@@ -20,10 +20,12 @@ function StaticElem({data, index, editElement, removeElement}) {
     );
 }
 
-function EditedElem({data, index, cancelEditElement}) {
+function EditedElem({data, index, cancelEditElement, confirmEditElement}) {
+    const [tempData, setTempData] = useState({...data});
+
     return(
         <>
-            <EditingParser data={data} index={index} />
+            <EditingParser data={tempData} index={index} setTempData={setTempData} />
             <button>Confirm</button>
             <button onClick={() => {cancelEditElement(index)}}>Cancel</button>
         </>
@@ -66,6 +68,17 @@ function PagePrev({ showAddElement, setAddElement }) {
         editMode.current = false;
     }
 
+    function confirmEditElement(index, element) {
+        const updatedArray = pageElements.map((prevElement, i) => {
+            if (i === index) {
+                return element;
+            }
+            return prevElement;
+        })
+
+        setPageElements(updatedArray);
+    }
+
     return (
         <section className='pagePrev'>
             {/* {editMode.current ? <button>Test</button> : null} */}
@@ -75,7 +88,7 @@ function PagePrev({ showAddElement, setAddElement }) {
                     <section className={`elementContainer editing-${data.editing}`} key={index}>
                         {
                             data.editing 
-                            ? <EditedElem data={data} index={index} cancelEditElement={cancelEditElement} />
+                            ? <EditedElem data={data} index={index} cancelEditElement={cancelEditElement} confirmEditElement={confirmEditElement} />
                             : <StaticElem data={data} index={index} editElement={editElement} removeElement={removeElement} />
                         }
                     </section>
