@@ -15,7 +15,8 @@ section.pagePrev section.pageElements {
 section.pagePrev section.elementContainer {
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
+    padding: 0 var(--padding-index-medium);
     gap: var(--gap-index);
 }
 
