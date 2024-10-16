@@ -5,6 +5,13 @@ section.pagePrev {
     min-height: 100vh;
 }
 
+section.pagePrev section.pageElements {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-index);
+}
+
 section.pagePrev section.elementContainer {
     display: flex;
     align-items: center;
