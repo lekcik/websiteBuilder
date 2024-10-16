@@ -23,3 +23,8 @@ section.pagePrev section.elementContainer {
 section.pagePrev section.elementContainer.editing-true {
     border: 0.1rem solid black;
 }
+
+section.pagePrev section.elementContainer section.buttons button svg {
+    width: 3rem;
+    height: 3rem;
+}
