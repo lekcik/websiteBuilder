@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function PParser({values, index, setTempData}) {
-    const [pText, setPText] = useState(values.text);
+    const [pText, setPText] = useState(values?.text || "");
 
     useEffect(() => {
         setTempData((prev) => ({...prev, values: {...prev.values, text: pText}}));

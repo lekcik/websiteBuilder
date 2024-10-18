@@ -29,10 +29,17 @@ function EditedElem({data, index, cancelEditElement, confirmEditElement}) {
         <>
             <EditingParser data={tempData} index={index} setTempData={setTempData} />
             
+            {tempData.temporal ?
             <section className='buttons'>
                 <button onClick={() => confirmEditElement(index, tempData)}>Confirm</button>
                 <button onClick={cancelEditElement}>Cancel</button>
             </section>
+            :
+            <section className='buttons'>
+                <button onClick={() => confirmEditElement(index, tempData)}>Confirm</button>
+                <button onClick={cancelEditElement}>Cancel</button>
+            </section>
+            }
         </>
     );
 }
