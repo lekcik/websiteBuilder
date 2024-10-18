@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-function PParser({text, index, setTempData}) {
-    const [pText, setPText] = useState(text);
+function PParser({values, index, setTempData}) {
+    const [pText, setPText] = useState(values.text);
 
     useEffect(() => {
-        setTempData((prev) => ({...prev, text: pText}));
+        setTempData((prev) => ({...prev, values: {...prev.values, text: pText}}));
     }, [pText]);
 
     function textChangeHandler(e) {
@@ -19,7 +19,7 @@ function PParser({text, index, setTempData}) {
 function EditingParser({data, index, setTempData}) {
     switch (data.type) {
         case 'p':
-            return <PParser text={data.text} index={index} setTempData={setTempData} />;
+            return <PParser values={data.values} index={index} setTempData={setTempData} />;
         default:
             console.error(`Unknown type: ${data.type}`);
             return null;

@@ -28,6 +28,7 @@ function EditedElem({data, index, cancelEditElement, confirmEditElement}) {
     return(
         <>
             <EditingParser data={tempData} index={index} setTempData={setTempData} />
+            
             <section className='buttons'>
                 <button onClick={() => confirmEditElement(index, tempData)}>Confirm</button>
                 <button onClick={cancelEditElement}>Cancel</button>
@@ -38,13 +39,11 @@ function EditedElem({data, index, cancelEditElement, confirmEditElement}) {
 
 function PagePrev({ showAddElement, setAddElement }) {
     const [pageElements, setPageElements] = useState([
-        { type: 'p', text: 'Halo', editing: false },
-        { type: 'p', text: 'Halo 2', editing: false  },
-        { type: 'p', text: 'Halo 3', editing: false  },
-        { type: 'p', text: 'Halo 4', editing: false  }
+        { type: 'p', values: {text: 'Halo'}, editing: false },
+        { type: 'p', values: {text: 'Halo2'}, editing: false  },
+        { type: 'p', values: {text: 'Halo3'}, editing: false  },
+        { type: 'p', values: {text: 'Halo4'}, editing: false  }
     ]);
-
-    const editMode = useRef(false);
 
     function removeElement(index) {
         const filteredArray = pageElements.filter((_, i) => i !== index);
@@ -60,7 +59,6 @@ function PagePrev({ showAddElement, setAddElement }) {
         });
 
         setPageElements(updatedArray);
-        editMode.current = true;
     }
 
     function cancelEditElement() {
@@ -69,7 +67,6 @@ function PagePrev({ showAddElement, setAddElement }) {
         });
 
         setPageElements(updatedArray);
-        editMode.current = false;
     }
 
     function confirmEditElement(index, element) {
@@ -83,10 +80,10 @@ function PagePrev({ showAddElement, setAddElement }) {
         setPageElements(updatedArray);
     }
 
+
     return (
         <section className='pagePrev'>
-            {/* {editMode.current ? <button>Test</button> : null} */}
-            <AddElem showAddElement={showAddElement} setAddElement={setAddElement} pageElements={pageElements} setPageElements={setPageElements} />
+            <AddElem showAddElement={showAddElement} setAddElement={setAddElement} setPageElements={setPageElements} />
             <section className='pageElements'>
                 {pageElements.map((data, index) => (
                     <section className={`elementContainer editing-${data.editing}`} key={index}>
