@@ -8,7 +8,7 @@ function AddElem({showAddElement, setAddElement, setPageElements}) {
     }
 
     function addParagraphHandler() {
-        const elem = { type: 'p', text: '', editing: true, temporal: true };
+        const elem = { type: 'p', values: {text: ''}, editing: true, temporal: true };
         setPageElements((prev) => [...prev, elem]);
     }
 

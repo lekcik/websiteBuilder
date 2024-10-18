@@ -22,22 +22,21 @@ function StaticElem({data, index, editElement, removeElement}) {
     );
 }
 
-function EditedElem({data, index, cancelEditElement, confirmEditElement}) {
+function EditedElem({data, index, cancelEditElement, confirmEditElement, cancelAddingElement}) {
     const [tempData, setTempData] = useState({...data});
 
     return(
         <>
             <EditingParser data={tempData} index={index} setTempData={setTempData} />
-            
-            {tempData.temporal ?
-            <section className='buttons'>
+
+            {!tempData.temporal
+            ? <section className='buttons'>
                 <button onClick={() => confirmEditElement(index, tempData)}>Confirm</button>
                 <button onClick={cancelEditElement}>Cancel</button>
             </section>
-            :
-            <section className='buttons'>
+            : <section className='buttons'>
                 <button onClick={() => confirmEditElement(index, tempData)}>Confirm</button>
-                <button onClick={cancelEditElement}>Cancel</button>
+                <button onClick={() => cancelAddingElement(index)}>Cancel</button>
             </section>
             }
         </>
@@ -87,6 +86,11 @@ function PagePrev({ showAddElement, setAddElement }) {
         setPageElements(updatedArray);
     }
 
+    function cancelAddingElement(index) {
+        const filteredArray = pageElements.filter((_, i) => i !== index);
+        setPageElements(filteredArray);
+    }
+
 
     return (
         <section className='pagePrev'>
@@ -96,7 +100,7 @@ function PagePrev({ showAddElement, setAddElement }) {
                     <section className={`elementContainer editing-${data.editing}`} key={index}>
                         {
                             data.editing 
-                            ? <EditedElem data={data} index={index} cancelEditElement={cancelEditElement} confirmEditElement={confirmEditElement} />
+                            ? <EditedElem data={data} index={index} cancelEditElement={cancelEditElement} confirmEditElement={confirmEditElement} cancelAddingElement={cancelAddingElement} />
                             : <StaticElem data={data} index={index} editElement={editElement} removeElement={removeElement} />
                         }
                     </section>
