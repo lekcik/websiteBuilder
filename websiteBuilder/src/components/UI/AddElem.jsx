@@ -1,10 +1,15 @@
 import './addElem.css';
 
-function AddElem({showAddElement, setAddElement}) {
+function AddElem({showAddElement, setAddElement, setPageElements}) {
     const shouldShow = showAddElement ? 'show' : '';
 
     function closeBtnHandler() {
         setAddElement(false);
+    }
+
+    function addParagraphHandler() {
+        const elem = { type: 'p', values: {text: ''}, editing: true, temporal: true };
+        setPageElements((prev) => [...prev, elem]);
     }
 
     return(
@@ -13,7 +18,7 @@ function AddElem({showAddElement, setAddElement}) {
             <h2>Categories</h2>
             <details className="textElements">
                 <summary>Text</summary>
-                <button>Add paragraph</button>
+                <button onClick={addParagraphHandler}>Add paragraph</button>
             </details>
         </section>
     );

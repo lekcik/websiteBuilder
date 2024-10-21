@@ -22,29 +22,34 @@ function StaticElem({data, index, editElement, removeElement}) {
     );
 }
 
-function EditedElem({data, index, cancelEditElement, confirmEditElement}) {
+function EditedElem({data, index, cancelEditElement, confirmEditElement, cancelAddingElement}) {
     const [tempData, setTempData] = useState({...data});
 
     return(
         <>
             <EditingParser data={tempData} index={index} setTempData={setTempData} />
-            <section className='buttons'>
+
+            {!tempData.temporal
+            ? <section className='buttons'>
                 <button onClick={() => confirmEditElement(index, tempData)}>Confirm</button>
                 <button onClick={cancelEditElement}>Cancel</button>
             </section>
+            : <section className='buttons'>
+                <button onClick={() => confirmEditElement(index, tempData)}>Confirm</button>
+                <button onClick={() => cancelAddingElement(index)}>Cancel</button>
+            </section>
+            }
         </>
     );
 }
 
 function PagePrev({ showAddElement, setAddElement }) {
     const [pageElements, setPageElements] = useState([
-        { type: 'p', text: 'Halo', editing: false },
-        { type: 'p', text: 'Halo 2', editing: false  },
-        { type: 'p', text: 'Halo 3', editing: false  },
-        { type: 'p', text: 'Halo 4', editing: false  }
+        { type: 'p', values: {text: 'Halo'}, editing: false },
+        { type: 'p', values: {text: 'Halo2'}, editing: false  },
+        { type: 'p', values: {text: 'Halo3'}, editing: false  },
+        { type: 'p', values: {text: 'Halo4'}, editing: false  }
     ]);
-
-    const editMode = useRef(false);
 
     function removeElement(index) {
         const filteredArray = pageElements.filter((_, i) => i !== index);
@@ -60,7 +65,6 @@ function PagePrev({ showAddElement, setAddElement }) {
         });
 
         setPageElements(updatedArray);
-        editMode.current = true;
     }
 
     function cancelEditElement() {
@@ -69,7 +73,6 @@ function PagePrev({ showAddElement, setAddElement }) {
         });
 
         setPageElements(updatedArray);
-        editMode.current = false;
     }
 
     function confirmEditElement(index, element) {
@@ -83,16 +86,21 @@ function PagePrev({ showAddElement, setAddElement }) {
         setPageElements(updatedArray);
     }
 
+    function cancelAddingElement(index) {
+        const filteredArray = pageElements.filter((_, i) => i !== index);
+        setPageElements(filteredArray);
+    }
+
+
     return (
         <section className='pagePrev'>
-            {/* {editMode.current ? <button>Test</button> : null} */}
-            <AddElem showAddElement={showAddElement} setAddElement={setAddElement} pageElements={pageElements} setPageElements={setPageElements} />
+            <AddElem showAddElement={showAddElement} setAddElement={setAddElement} setPageElements={setPageElements} />
             <section className='pageElements'>
                 {pageElements.map((data, index) => (
                     <section className={`elementContainer editing-${data.editing}`} key={index}>
                         {
                             data.editing 
-                            ? <EditedElem data={data} index={index} cancelEditElement={cancelEditElement} confirmEditElement={confirmEditElement} />
+                            ? <EditedElem data={data} index={index} cancelEditElement={cancelEditElement} confirmEditElement={confirmEditElement} cancelAddingElement={cancelAddingElement} />
                             : <StaticElem data={data} index={index} editElement={editElement} removeElement={removeElement} />
                         }
                     </section>
@@ -103,3 +111,5 @@ function PagePrev({ showAddElement, setAddElement }) {
 }
 
 export default PagePrev;
+
+// code is being refactored
