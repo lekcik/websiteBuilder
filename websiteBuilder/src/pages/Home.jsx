@@ -18,3 +18,6 @@ function Home() {
 }
 
 export default Home;
+
+// folder structure shall be changed
+// change folder structure

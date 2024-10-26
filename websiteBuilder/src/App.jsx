@@ -55,3 +55,6 @@ function App() {
 }
 
 export default App
+
+// app is being refactored
+// app logic shall be changed
